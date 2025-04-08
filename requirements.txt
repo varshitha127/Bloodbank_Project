@@ -1,3 +1,6 @@
+pip>=24.0
+setuptools>=68.0
+wheel
 absl-py==2.1.0
 altair==5.0.1
 asgiref==3.7.2
@@ -130,6 +133,3 @@ Werkzeug==2.2.3
 wikipedia==1.4.0
 wrapt==1.16.0
 zipp==3.15.0
-pip>=24.0
-setuptools>=68.0
-wheel
