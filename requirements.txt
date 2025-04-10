@@ -8,4 +8,6 @@ pytz==2021.1
 sqlparse==0.4.1
 tracestack==0.2.4
 gunicorn
-pip install cloudinary django-cloudinary-storage
+cloudinary
+django-cloudinary-storage
+
