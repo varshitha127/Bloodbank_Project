@@ -137,4 +137,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEBUG = False
 ALLOWED_HOSTS = ['*']  # You can later replace '*' with Render's actual domain name
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
