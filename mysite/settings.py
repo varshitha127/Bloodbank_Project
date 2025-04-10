@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +131,13 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'delxvgxso',
+    'API_KEY': '572978722514323',
+    'API_SECRET': 'L-L7bIZ8dM5LuF4XKGaeCjUaSgA',
+}
+
 
 import os
 
@@ -139,3 +148,4 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']  # You can later replace '*' with Render's actual domain name
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
