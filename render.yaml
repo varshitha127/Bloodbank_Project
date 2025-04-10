@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: bloodbank-project
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py migrate
+    startCommand: gunicorn mysite.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: mysite.settings
+      - key: CLOUDINARY_CLOUD_NAME
+        value: your_cloud_name_here
+      - key: CLOUDINARY_API_KEY
+        value: your_api_key_here
+      - key: CLOUDINARY_API_SECRET
+        value: your_api_secret_here
+      - key: DEBUG
+        value: False
