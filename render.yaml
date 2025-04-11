@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: bloodbank-project
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn mysite.wsgi:application  # Change 'bloodbank' if your project name is different
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: bloodbank.settings  # Change 'bloodbank' if your project name is different
+      - key: SECRET_KEY
+        value: 12345678  # Replace with your actual Django secret key
+      - key: CLOUDINARY_CLOUD_NAME
+        value: delxvgxso  # Replace with your actual Cloudinary cloud name
+      - key: CLOUDINARY_API_KEY
+        value: 572978722514323  # Replace with your actual Cloudinary API key
+      - key: CLOUDINARY_API_SECRET
+        value: L-L7bIZ8dM5LuF4XKGaeCjUaSgA  # Replace with your actual Cloudinary API secret
+    autoDeploy: true
+    buildFilter:
+      paths:
+        - "requirements.txt"
+        - "**/*.py"
+        - "render.yaml"
