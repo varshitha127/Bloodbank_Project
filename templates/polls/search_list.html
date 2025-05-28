@@ -1,43 +1,177 @@
-{% extends 'polls/base.html' %} {% block title %}<title>Search List</title>
-{% endblock %} {% block contents %}
-<style>
-  td {
-    height: 40px;
-  }
+{% extends 'polls/base.html' %}
+{% block title %}
+<title>Search Results - Blood Management System</title>
+{% endblock %}
 
-  th {
-    height: 40px;
-  }
-</style>
-<div class="container">
-  <div class="p-5">
-    <div class="shadow-lg mx-auto">
-      <table class="table table-hover">
-        <thead class="bg-danger text-white">
-          <tr>
-            <th>Donor Name</th>
-            <th>Blood Group</th>
-            <th>State</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        {% for donor in donor_filter %}
-        <tbody>
-          <tr>
-            <td>
-              <a href="{% url 'search_info' donor.email %}" class="text-danger"
-                >{{donor.name}}</a
-              >
-            </td>
-            <td>{{donor.blood_group | capfirst}}</td>
-            <td>{{donor.state | capfirst}}</td>
-            <td>{{donor.city | capfirst}}</td>
-          </tr>
-        </tbody>
-        {% endfor %}
-      </table>
+{% block contents %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Search Results Header -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h2 class="text-primary mb-1">Search Results</h2>
+                            <p class="text-muted mb-0">
+                                Found {{ donor_filter|length }} donor{{ donor_filter|length|pluralize }} matching your criteria
+                            </p>
+                        </div>
+                        <a href="{% url 'search' %}" class="btn btn-outline-primary">
+                            <i class="fas fa-search me-2"></i>New Search
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th class="py-3 px-4">Donor Name</th>
+                                    <th class="py-3 px-4">Blood Group</th>
+                                    <th class="py-3 px-4">State</th>
+                                    <th class="py-3 px-4">City</th>
+                                    <th class="py-3 px-4 text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for donor in donor_filter %}
+                                <tr>
+                                    <td class="py-3 px-4 align-middle">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-light text-primary me-3">
+                                                {{ donor.name|make_list|first|upper }}
+                                            </div>
+                                            <div>
+                                                <a href="{% url 'search_info' donor.email %}" class="text-decoration-none text-dark fw-bold">
+                                                    {{ donor.name }}
+                                                </a>
+                                                <div class="small text-muted">{{ donor.email }}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4 align-middle">
+                                        <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2">
+                                            {{ donor.blood_group|capfirst }}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4 align-middle">{{ donor.state|capfirst }}</td>
+                                    <td class="py-3 px-4 align-middle">{{ donor.city|capfirst }}</td>
+                                    <td class="py-3 px-4 align-middle text-center">
+                                        <a href="{% url 'search_info' donor.email %}" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-user me-1"></i>View Details
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="py-5 text-center">
+                                        <div class="text-muted">
+                                            <i class="fas fa-search fa-3x mb-3"></i>
+                                            <h5>No Donors Found</h5>
+                                            <p class="mb-0">Try adjusting your search criteria</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-phone-alt fa-2x text-primary me-3"></i>
+                                <h5 class="card-title mb-0">Need Help?</h5>
+                            </div>
+                            <p class="text-muted mb-0">Contact our support team for assistance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-heart fa-2x text-danger me-3"></i>
+                                <h5 class="card-title mb-0">Become a Donor</h5>
+                            </div>
+                            <p class="text-muted mb-0">Join our community of life-savers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-info-circle fa-2x text-primary me-3"></i>
+                                <h5 class="card-title mb-0">Learn More</h5>
+                            </div>
+                            <p class="text-muted mb-0">About blood donation and its importance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-<div style="margin-bottom: 511px"></div>
+
+<style>
+    .avatar-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .table th {
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .table td {
+        white-space: nowrap;
+    }
+
+    .badge {
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+
+    .btn-outline-primary {
+        border-width: 2px;
+        font-weight: 500;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .text-decoration-none:hover {
+        color: var(--primary-color) !important;
+    }
+</style>
 {% endblock %}

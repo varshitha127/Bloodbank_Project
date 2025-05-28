@@ -1,54 +1,217 @@
-{% extends 'polls/base.html' %} {% block title %}
-<title>Donor List</title>
-{% endblock %} {% block contents %}
+{% extends 'polls/base.html' %}
+{% block title %}
+<title>{{ details.name }} - Donor Details | Blood Management System</title>
+{% endblock %}
 
-<style>
-  .borderr {
-    border-radius: 12px;
-    border: 1px solid #d9534f;
-  }
+{% block contents %}
 
-  p b {
-    color: #d9534f;
-    font-size: 20px;
-  }
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Back Button -->
+            <div class="mb-4">
+                <a href="{% url 'search_list' %}" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Search Results
+                </a>
+            </div>
 
-  p b:hover {
-    text-decoration: underline;
-  }
-  .containers {
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-</style>
+            <!-- Donor Profile Card -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-body p-5">
+                    <!-- Profile Header -->
+                    <div class="text-center mb-5">
+                        <div class="avatar-circle bg-primary text-white mx-auto mb-4" style="width: 100px; height: 100px; font-size: 2.5rem;">
+                            {{ details.name|make_list|first|upper }}
+                        </div>
+                        <h2 class="text-primary mb-2">{{ details.name|capfirst }}</h2>
+                        <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 mb-3">
+                            {{ details.blood_group|capfirst }}
+                        </span>
+                        <p class="text-muted mb-0">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            {{ details.city|capfirst }}, {{ details.state|capfirst }}
+                        </p>
+                    </div>
 
-<div class="containers">
-  <div class="p-5">
-    <div class="shadow-lg p-5 mb-3 bg-white w-100 borderr mx-auto">
-      <h2 class="text-center text-info">Details About {{details.name}}</h2>
-      <br />
-      <p><b>Name: </b>{{details.name | capfirst}}</p>
-      <p><b>Father Name: </b>{{details.father_name | capfirst}}</p>
-      <p><b>Gender: </b>{{details.gender | capfirst}}</p>
-      <p><b>E-Mail: </b>{{details.email}}</p>
-      <p><b>Phone Number: </b>{{details.phone_number}}</p>
-      <p><b>State: </b>{{details.state | capfirst}}</p>
-      <p><b>City: </b>{{details.city | capfirst}}</p>
-      <p><b>Date Of Birth: </b>{{details.date_of_birth}}</p>
-      <p><b>Occupation: </b>{{details.occupation}}</p>
-      <p><b>Blood Group: </b>{{details.blood_group | capfirst}}</p>
-      <p><b>Home Address: </b>{{details.home_address}}</p>
-      <p><b>Last Donate Date: </b>{{details.last_donate_date}}</p>
-      <p><b>Any Disease: </b>{{details.any_disease | capfirst}}</p>
-      <p><b>Allergies: </b>{{details.allergies | capfirst}}</p>
-      <p><b>Cardiac: </b>{{details.cardiac | capfirst}}</p>
-      <p><b>Bleeding Disorder: </b>{{details.bleeding_disorder | capfirst}}</p>
-      <p><b>HbsAg Hcv HIV: </b>{{details.hbsAg_hcv_hIV | capfirst}}</p>
-      <br />
+                    <!-- Contact Information -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-circle bg-light text-primary me-3">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <small class="text-muted d-block">Email</small>
+                                    <a href="mailto:{{ details.email }}" class="text-decoration-none">{{ details.email }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-circle bg-light text-primary me-3">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <small class="text-muted d-block">Phone</small>
+                                    <a href="tel:{{ details.phone_number }}" class="text-decoration-none">{{ details.phone_number }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="card bg-light border-0 mb-4">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary mb-4">
+                                <i class="fas fa-user me-2"></i>Personal Information
+                            </h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Father's Name</small>
+                                        <strong>{{ details.father_name|capfirst }}</strong>
+                                    </div>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Gender</small>
+                                        <strong>{{ details.gender|capfirst }}</strong>
+                                    </div>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Date of Birth</small>
+                                        <strong>{{ details.date_of_birth }}</strong>
+                                    </div>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Occupation</small>
+                                        <strong>{{ details.occupation }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Last Donation</small>
+                                        <strong>{{ details.last_donate_date }}</strong>
+                                    </div>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Home Address</small>
+                                        <strong>{{ details.home_address }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical Information -->
+                    <div class="card bg-light border-0">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary mb-4">
+                                <i class="fas fa-heartbeat me-2"></i>Medical Information
+                            </h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Any Disease</small>
+                                        <strong>{{ details.any_disease|capfirst }}</strong>
+                                    </div>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Allergies</small>
+                                        <strong>{{ details.allergies|capfirst }}</strong>
+                                    </div>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Cardiac</small>
+                                        <strong>{{ details.cardiac|capfirst }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Bleeding Disorder</small>
+                                        <strong>{{ details.bleeding_disorder|capfirst }}</strong>
+                                    </div>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">HbsAg HCV HIV</small>
+                                        <strong>{{ details.hbsAg_hcv_hIV|capfirst }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-phone-alt fa-2x text-primary me-3"></i>
+                                <h5 class="card-title mb-0">Contact Donor</h5>
+                            </div>
+                            <p class="text-muted mb-0">Get in touch with the donor for blood donation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-heart fa-2x text-danger me-3"></i>
+                                <h5 class="card-title mb-0">Become a Donor</h5>
+                            </div>
+                            <p class="text-muted mb-0">Join our community of life-savers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
+<style>
+    .avatar-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+    }
+
+    .icon-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .badge {
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+
+    .btn-outline-primary {
+        border-width: 2px;
+        font-weight: 500;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .text-decoration-none:hover {
+        color: var(--primary-color) !important;
+    }
+
+    strong {
+        color: var(--dark-color);
+        font-weight: 500;
+    }
+</style>
 {% endblock %}

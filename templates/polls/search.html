@@ -1,36 +1,183 @@
-{% extends 'polls/base.html' %} {% block title %}<title>Search</title>
-{% endblock %} {% block contents %} {% load static %}
-<style>
-  .image {
-    width: 150px;
-    height: 145px;
-    margin-left: 60px;
-  }
+{% extends 'polls/base.html' %}
+{% block title %}
+<title>Search Blood Donors - Blood Management System</title>
+{% endblock %}
 
-  .width-border {
-    border-radius: 12px;
-    border: 1px solid #d9534f;
-  }
-  .containers {
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-</style>
-<div class="containers">
-  <div class="p-5">
-    <div class="shadow-lg p-5 w-100 mb-3 bg-white width-border mx-auto">
-      <form action="{% url 'search_list' %}" method="post">
-        <img src="{% static 'images/search.png' %}" class="image" />
-        <h4 class="text-center pt-4 text-danger text-uppercase">
-          Need For Blood
-        </h4>
-        {% csrf_token %} {{forms.as_p}}
-        <button type="submit" class="btn btn-danger">Submit</button>
-      </form>
+{% block contents %}
+{% load static %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <img src="{% static 'images/search.png' %}" alt="Search Blood" class="rounded-circle mb-4" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid var(--primary-color);">
+                        <h2 class="text-primary mb-3">Search Blood Donors</h2>
+                        <p class="text-muted">Find blood donors in your area. Every search helps save lives.</p>
+                    </div>
+
+                    <form action="{% url 'search_list' %}" method="post" class="needs-validation">
+                        {% csrf_token %}
+                        
+                        {% for field in forms %}
+                        <div class="mb-4">
+                            <label for="{{ field.id_for_label }}" class="form-label fw-bold">
+                                {{ field.label }}
+                                {% if field.field.required %}
+                                <span class="text-danger">*</span>
+                                {% endif %}
+                            </label>
+                            {{ field.errors }}
+                            {{ field|add_class:"form-control" }}
+                            {% if field.help_text %}
+                            <div class="form-text">{{ field.help_text }}</div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+                        <div class="d-grid gap-2 mt-5">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-search me-2"></i>Search Donors
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Emergency Information Card -->
+            <div class="card mt-4 border-0 bg-light">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary mb-3">
+                        <i class="fas fa-exclamation-circle me-2"></i>Emergency Blood Need?
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-phone-alt fa-2x text-danger me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Emergency Contact</h6>
+                                    <p class="small text-muted mb-0">Call our 24/7 helpline</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-hospital fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Nearest Blood Bank</h6>
+                                    <p class="small text-muted mb-0">Find emergency blood banks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blood Type Information -->
+            <div class="card mt-4 border-0">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary mb-3">
+                        <i class="fas fa-info-circle me-2"></i>Blood Type Compatibility
+                    </h5>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Blood Type</th>
+                                    <th>Can Receive From</th>
+                                    <th>Can Donate To</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>A+</strong></td>
+                                    <td>A+, A-, O+, O-</td>
+                                    <td>A+, AB+</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>B+</strong></td>
+                                    <td>B+, B-, O+, O-</td>
+                                    <td>B+, AB+</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AB+</strong></td>
+                                    <td>All Types</td>
+                                    <td>AB+</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>O+</strong></td>
+                                    <td>O+, O-</td>
+                                    <td>O+, A+, B+, AB+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
+<style>
+    .form-control {
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(230, 57, 70, 0.25);
+    }
+
+    .form-label {
+        color: var(--dark-color);
+        font-size: 0.95rem;
+    }
+
+    .errorlist {
+        color: var(--danger-color);
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+    }
+
+    .form-text {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .btn-primary {
+        padding: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .table {
+        margin-bottom: 0;
+    }
+
+    .table th {
+        font-weight: 600;
+        background-color: #f8f9fa;
+    }
+
+    .table td, .table th {
+        padding: 0.75rem;
+        vertical-align: middle;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+</style>
 {% endblock %}

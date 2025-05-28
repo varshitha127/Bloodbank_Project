@@ -1,71 +1,262 @@
-{% extends 'polls/base.html' %} {% block title %}<title>Contact</title>
-{% endblock %} {% block contents %}
-<style>
-  .width-border {
-    border-radius: 12px;
-    border: 1px solid #d9534f;
-    display: flex;
-  }
-  .containers {
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-</style>
+{% extends 'polls/base.html' %}
+{% block title %}
+<title>Contact Us - Blood Management System</title>
+{% endblock %}
 
-<div class="containers">
-  <div class="p-5">
-    <div class="shadow-lg w-75 p-5 mb-3 bg-white round width-border mx-auto">
-      <form action="" method="post">
-        <h2 class="text-center text-danger text-uppercase">Contact Us</h2>
-        <br /><br />
+{% block contents %}
+{% load static %}
 
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="p-3">
-              <div class="row">
-                <div class="col-2">
-                  <i class="fas fa-user" style="font-size: 20px"></i>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Hero Section -->
+            <div class="card border-0 shadow-lg mb-5">
+                <div class="card-body p-0">
+                    <div class="position-relative">
+                        <img src="{% static 'images/contact-hero.jpg' %}" alt="Contact Us" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
+                        <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+                            <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+                            <p class="lead">Get in touch with our team for any assistance or inquiries</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-10">
-                  <p style="font-size: 17px">Lakkireddy Varshitha</p>
-                  <p style="font-size: 17px">P.Ashritha</p>
-                  <p style="font-size: 17px">B.Aishwarya</p>
-                </div>
-                <br /><br />
-                <div class="col-2">
-                  <i class="fas fa-phone" style="font-size: 20px"></i>
-                </div>
-                <div class="col-10">
-                  <p style="font-size: 17px">+91XXXXXXXX</p>
-                </div>
-                <br /><br />
-                <div class="col-2">
-                  <i class="fas fa-envelope" style="font-size: 20px"></i>
-                </div>
-                <div class="col-10">
-                  <p style="font-size: 17px">XXXX@gmail.com</p>
-                </div>
-                <br /><br />
-                <div class="col-2">
-                  <i class="fas fa-map-marker-alt" style="font-size: 20px"></i>
-                </div>
-                <div class="col-10">
-                  <p style="font-size: 17px">XXXXXXXX</p>
-                </div>
-                <br /><br />
-              </div>
             </div>
-          </div>
-          <div class="col-lg-6">
-            {% csrf_token %} {{forms.as_p}}
-            <button type="submit" class="btn btn-danger">Submit</button>
-          </div>
+
+            <div class="row">
+                <!-- Contact Information -->
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary mb-4">
+                                <i class="fas fa-info-circle me-2"></i>Our Team
+                            </h5>
+                            
+                            <div class="team-info mb-4">
+                                <div class="team-member mb-3">
+                                    <h6 class="mb-1">Lakkireddy Varshitha</h6>
+                                    <p class="small text-muted mb-0">Project Lead</p>
+                                </div>
+
+                                <div class="team-member mb-3">
+                                    <h6 class="mb-1">P. Ashritha</h6>
+                                    <p class="small text-muted mb-0">Developer</p>
+                                </div>
+
+                                <div class="team-member mb-3">
+                                    <h6 class="mb-1">B. Aishwarya</h6>
+                                    <p class="small text-muted mb-0">Developer</p>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h5 class="card-title text-primary mb-4">
+                                <i class="fas fa-address-card me-2"></i>Contact Details
+                            </h5>
+
+                            <div class="contact-info">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle bg-light text-primary me-3">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">Phone</small>
+                                        <a href="tel:+91XXXXXXXX" class="text-decoration-none">+91 XXXXXXXXXX</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle bg-light text-primary me-3">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">Email</small>
+                                        <a href="mailto:XXXX@gmail.com" class="text-decoration-none">XXXX@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-circle bg-light text-primary me-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">Address</small>
+                                        <span>XXXXXXXX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary mb-4">
+                                <i class="fas fa-paper-plane me-2"></i>Send us a Message
+                            </h5>
+                            
+                            <form action="" method="post" class="needs-validation">
+                                {% csrf_token %}
+                                {% for field in forms %}
+                                <div class="mb-4">
+                                    <label for="{{ field.id_for_label }}" class="form-label fw-bold">
+                                        {{ field.label }}
+                                        {% if field.field.required %}
+                                        <span class="text-danger">*</span>
+                                        {% endif %}
+                                    </label>
+                                    {{ field.errors }}
+                                    {{ field|add_class:"form-control" }}
+                                    {% if field.help_text %}
+                                    <div class="form-text">{{ field.help_text }}</div>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-circle bg-light text-primary me-3">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h5 class="card-title mb-0">Working Hours</h5>
+                            </div>
+                            <p class="text-muted mb-0">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-circle bg-light text-primary me-3">
+                                    <i class="fas fa-ambulance"></i>
+                                </div>
+                                <h5 class="card-title mb-0">Emergency Contact</h5>
+                            </div>
+                            <p class="text-muted mb-0">24/7 Emergency Blood Support</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 bg-light h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-circle bg-light text-primary me-3">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h5 class="card-title mb-0">Location</h5>
+                            </div>
+                            <p class="text-muted mb-0">Find us on Google Maps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </form>
     </div>
-  </div>
 </div>
 
+<style>
+    .icon-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .team-member {
+        padding: 0.75rem;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+        transform: translateX(5px);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-info {
+        background: url('{% static "images/contact-bg.jpg" %}') center/cover;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .form-control {
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(230, 57, 70, 0.25);
+    }
+
+    .form-label {
+        color: var(--dark-color);
+        font-size: 0.95rem;
+    }
+
+    .errorlist {
+        color: var(--danger-color);
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+    }
+
+    .form-text {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .btn-primary {
+        padding: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .text-decoration-none:hover {
+        color: var(--primary-color) !important;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+    }
+</style>
 {% endblock %}

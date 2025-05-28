@@ -1,60 +1,230 @@
-{% extends 'polls/base.html' %} {% block title %}
-<title>Donor List</title>
-{% endblock %} {% block contents %}
+{% extends 'polls/base.html' %}
+{% block title %}
+<title>Registration Success - Blood Management System</title>
+{% endblock %}
 
-<style>
-  .borderr {
-    border-radius: 12px;
-    border: 1px solid #d9534f;
-  }
+{% block contents %}
+{% load static %}
 
-  p b {
-    color: #d9534f;
-    font-size: 20px;
-  }
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-5">
+                    <!-- Success Header -->
+                    <div class="text-center mb-5">
+                        <img src="{% static 'images/success-illustration.svg' %}" alt="Success" class="img-fluid mb-4" style="max-width: 200px;">
+                        <h1 class="text-primary mb-3">Registration Successful!</h1>
+                        <p class="text-muted">Thank you for joining our blood donation community, {{forms.name.data|capfirst}}!</p>
+                    </div>
 
-  p b:hover {
-    text-decoration: underline;
-  }
-  .containers {
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-</style>
+                    <!-- Donor Profile -->
+                    <div class="card bg-light border-0 mb-4">
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="profile-header mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-primary text-white me-3">
+                                                <img src="{% static 'images/donor-avatar.svg' %}" alt="Donor Avatar" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1">{{forms.name.data|capfirst}}</h4>
+                                                <span class="badge bg-primary">{{forms.blood_group.data|capfirst}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="containers">
-  <div class="p-5">
-    <div class="shadow-lg p-5 mb-3 bg-white w-75 borderr mx-auto">
-      <h1 class="text-center text-danger">Welcome to Blood Bank</h1>
-      <h2 class="text-center text-info">Your Details</h2>
-      <br />
-      <p><b>Name: </b>{{forms.name.data | capfirst}}</p>
-      <p><b>Father Name: </b>{{forms.father_name.data | capfirst}}</p>
-      <p><b>Gender: </b>{{forms.gender.data | capfirst}}</p>
-      <p><b>E-Mail: </b>{{forms.email.data}}</p>
-      <p><b>Phone Number: </b>{{forms.phone_number.data}}</p>
-      <p><b>State: </b>{{forms.state.data | capfirst}}</p>
-      <p><b>City: </b>{{forms.city.data | capfirst}}</p>
-      <p><b>Date Of Birth: </b>{{forms.date_of_birth.data}}</p>
-      <p><b>Occupation: </b>{{forms.occupation.data}}</p>
-      <p><b>Blood Group: </b>{{forms.blood_group.data | capfirst}}</p>
-      <p><b>Home Address: </b>{{forms.home_address.data}}</p>
-      <p><b>Last Donate Date: </b>{{forms.last_donate_date.data}}</p>
-      <p><b>Any Disease: </b>{{forms.any_disease.data | capfirst}}</p>
-      <p><b>Allergies: </b>{{forms.allergies.data | capfirst}}</p>
-      <p><b>Cardiac: </b>{{forms.cardiac.data | capfirst}}</p>
-      <p>
-        <b>Bleeding Disorder: </b>{{forms.bleeding_disorder.data | capfirst}}
-      </p>
-      <p><b>HbsAg Hcv HIV: </b>{{forms.hbsAg_hcv_hIV.data | capfirst}}</p>
-      <br />
-      <h3 class="text-center">
-        {{forms.name.data}} Your Registration Is Successfull....
-      </h3>
+                                    <div class="donor-info">
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Father's Name</small>
+                                            <span class="fw-bold">{{forms.father_name.data|capfirst}}</span>
+                                        </div>
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Gender</small>
+                                            <span class="fw-bold">{{forms.gender.data|capfirst}}</span>
+                                        </div>
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Date of Birth</small>
+                                            <span class="fw-bold">{{forms.date_of_birth.data}}</span>
+                                        </div>
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Occupation</small>
+                                            <span class="fw-bold">{{forms.occupation.data}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact-info">
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Email</small>
+                                            <span class="fw-bold">{{forms.email.data}}</span>
+                                        </div>
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Phone Number</small>
+                                            <span class="fw-bold">{{forms.phone_number.data}}</span>
+                                        </div>
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Location</small>
+                                            <span class="fw-bold">{{forms.city.data|capfirst}}, {{forms.state.data|capfirst}}</span>
+                                        </div>
+                                        <div class="info-item mb-3">
+                                            <small class="text-muted d-block">Last Donation</small>
+                                            <span class="fw-bold">{{forms.last_donate_date.data}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical Information -->
+                    <div class="card bg-light border-0 mb-4">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary mb-4">
+                                <img src="{% static 'images/medical-icon.svg' %}" alt="Medical" class="me-2" style="width: 24px;">Medical Information
+                            </h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="info-item mb-3">
+                                        <small class="text-muted d-block">Any Disease</small>
+                                        <span class="fw-bold">{{forms.any_disease.data|capfirst}}</span>
+                                    </div>
+                                    <div class="info-item mb-3">
+                                        <small class="text-muted d-block">Allergies</small>
+                                        <span class="fw-bold">{{forms.allergies.data|capfirst}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item mb-3">
+                                        <small class="text-muted d-block">Cardiac Issues</small>
+                                        <span class="fw-bold">{{forms.cardiac.data|capfirst}}</span>
+                                    </div>
+                                    <div class="info-item mb-3">
+                                        <small class="text-muted d-block">Bleeding Disorder</small>
+                                        <span class="fw-bold">{{forms.bleeding_disorder.data|capfirst}}</span>
+                                    </div>
+                                    <div class="info-item mb-3">
+                                        <small class="text-muted d-block">HbsAg Hcv HIV Status</small>
+                                        <span class="fw-bold">{{forms.hbsAg_hcv_hIV.data|capfirst}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Information -->
+                    <div class="card bg-light border-0">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary mb-4">
+                                <img src="{% static 'images/address-icon.svg' %}" alt="Address" class="me-2" style="width: 24px;">Address Information
+                            </h5>
+                            <div class="info-item">
+                                <small class="text-muted d-block">Home Address</small>
+                                <span class="fw-bold">{{forms.home_address.data}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <div class="text-center mt-5">
+                        <h5 class="text-primary mb-4">What's Next?</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="next-step-card">
+                                    <img src="{% static 'images/schedule-icon.svg' %}" alt="Schedule" class="mb-3" style="width: 48px;">
+                                    <h6>Schedule Donation</h6>
+                                    <p class="small text-muted">Book your next donation appointment</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="next-step-card">
+                                    <img src="{% static 'images/share-icon.svg' %}" alt="Share" class="mb-3" style="width: 48px;">
+                                    <h6>Share Your Story</h6>
+                                    <p class="small text-muted">Inspire others to donate blood</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="next-step-card">
+                                    <img src="{% static 'images/community-icon.svg' %}" alt="Community" class="mb-3" style="width: 48px;">
+                                    <h6>Stay Connected</h6>
+                                    <p class="small text-muted">Join our donor community</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
+<style>
+    .avatar-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .info-item {
+        padding: 0.5rem;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+        transform: translateY(-2px);
+    }
+
+    .next-step-card {
+        padding: 1.5rem;
+        border-radius: 12px;
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+    .next-step-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .text-primary {
+        color: var(--primary-color) !important;
+    }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    .fw-bold {
+        font-weight: 600 !important;
+    }
+
+    .contact-info {
+        background: url('{% static "images/contact-pattern.svg" %}') center/cover;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+</style>
 {% endblock %}

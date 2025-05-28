@@ -1,194 +1,407 @@
-{% extends 'polls/base.html' %} {% block title %}<title>About</title>
-{% endblock%} {% block contents %}
+{% extends 'polls/base.html' %}
+{% block title %}
+<title>About Blood Donation - Blood Management System</title>
+{% endblock %}
 
-<style>
-  h2 {
-    color: #d9534f;
-  }
+{% block contents %}
+{% load static %}
 
-  .width-border {
-    border-radius: 12px;
-    width: 100%;
-    border: 1px solid #d9534f;
-  }
-</style>
-
-<div class="container">
-  <div class="p-5">
-    <div class="shadow-lg p-5 mb-3 bg-white width width-border mx-auto">
-      <div class="font">
-        <h2 class="text-center font-weight-bold">Benefits</h2>
-        <hr />
-        <p>
-          Donating blood has benefits for your emotional and physical health.
-          According to a report by the Mental Health Foundation, helping others
-          can:
-        </p>
-        <ul>
-          <li>reduce stress</li>
-          <li>improve your emotional well-being</li>
-          <li>benefit your physical health</li>
-          <li>help get rid of negative feelings</li>
-          <li>provide a sense of belonging and reduce isolation</li>
-        </ul>
-        <p>
-          Research has found further evidence of the health benefits that come
-          specifically from donating blood.
-        </p>
-
-        <h2 class="text-center font-weight-bold">Free health checkup</h2>
-        <hr />
-        <p>
-          In order to give blood, you’re required to undergo a health screening.
-          A trained staff member performs this checkup. They’ll check your:
-        </p>
-        <ul>
-          <li>pulse</li>
-          <li>blood pressure</li>
-          <li>body temperature</li>
-          <li>hemoglobin levels</li>
-        </ul>
-        <p>
-          This free mini-physical can offer excellent insight into your health.
-          It can effectively detect problems that could indicate an underlying
-          medical condition or risk factors for certain diseases.
-        </p>
-
-        <p>Your blood is also tested for several diseases. These include:</p>
-        <ul>
-          <li>hepatitis B</li>
-          <li>hepatitis C</li>
-          <li>HIV</li>
-          <li>West Nile virus</li>
-          <li>syphilis</li>
-          <li>Trypanosoma cruzi</li>
-        </ul>
-        <h2 class="text-center font-weight-bold">
-          Side effects of donating blood
-        </h2>
-        <hr />
-        <p>
-          Blood donation is safe for healthy adults. There’s no risk of
-          contracting disease. New, sterile equipment is used for each donor.
-          <br /><br />
-          Some people may feel nauseous, lightheaded, or dizzy after donating
-          blood. If this happens, it should only last a few minutes. You can lie
-          down with your feet up at the until you feel better.
-          <br /><br />
-          You may also experience some bleeding at the site of the needle.
-          Applying pressure and raising your arm for a couple of minutes will
-          usually stop this. You may develop a bruise at the site.
-          <br />
-          Call the blood donation center if:
-        </p>
-        <ul>
-          <li>
-            You still feel lightheaded, dizzy, or nauseous after drinking,
-            eating, and resting.
-          </li>
-          <li>
-            You develop a raised bump or continue bleeding at the needle site.
-          </li>
-          <li>You have arm pain, numbness, or tingling.</li>
-        </ul>
-        <h2 class="text-center font-weight-bold">During the donation</h2>
-        <hr />
-        <p>
-          You must register to donate blood. This includes providing
-          identification, your medical history, and undergoing a quick physical
-          examination. You’ll also be given some information about blood
-          donation to read. <br /><br />
-          Once you’re ready, your blood donation procedure will begin. Whole
-          blood donation is the most common type of donation. This is because it
-          offers the most flexibility. It can be transfused as whole blood or
-          separated into red cells, platelets, and plasma for different
-          recipients.
-          <br /><br />
-          For a whole blood donation procedure:
-        </p>
-        <ol>
-          <li>
-            You’ll be seated in a reclining chair. You can donate blood either
-            sitting or lying down.
-          </li>
-          <li>
-            A small area of your arm will be cleaned. A sterile needle will then
-            be inserted.
-          </li>
-          <li>
-            You’ll remain seated or lying down while a pint of your blood is
-            drawn. This takes 8 to 10 minutes.
-          </li>
-          <li>
-            When a pint of blood has been collected, a staff member will remove
-            the needle and bandage your arm.
-          </li>
-        </ol>
-        <p>
-          Other types of donation include:
-          <br />
-        </p>
-
-        <ul>
-          <li>platelet donation (plateletpheresis)</li>
-          <li>plasma donation (plasmapheresis)</li>
-          <li>double red cell donation</li>
-        </ul>
-        <p>
-          These types of donations are performed using a process called
-          apheresis. An apheresis machine is connected to both of your arms. It
-          collects a small amount of blood and separates the components before
-          returning the unused components back to you. This cycle is repeated
-          several times over approximately two hours. <br /><br />
-          Once your donation is complete, you’ll be given a snack and a drink
-          and be able to sit and rest for 10 or 15 minutes before you leave. If
-          you feel faint or nauseous, you’ll be able to lie down until you feel
-          better.
-        </p>
-
-        <h2 class="text-center font-weight-bold">
-          What to know before you donate
-        </h2>
-        <hr />
-        <p>Here are some important things to know before you donate:</p>
-        <ul>
-          <li>
-            You need to be 17 or older to donate whole blood. Some states allow
-            you to donate at 16 with parental consent.
-          </li>
-          <li>
-            You have to weigh at least 110 pounds and be in good health to
-            donate.
-          </li>
-          <li>
-            You need to provide information about medical conditions and any
-            medications you’re taking. These may affect your eligibility to
-            donate blood.
-          </li>
-          <li>
-            You must wait at least 8 weeks between whole blood donations and 16
-            weeks between double red cell donations.
-          </li>
-          <li>
-            Platelet donations can be made every 7 days, up to 24 times per
-            year.
-          </li>
-        </ul>
-        <p>
-          The following are some suggestions to help you prepare for donating
-          blood:
-        </p>
-        <ul>
-          <li>Drink an extra 16 ounces of water before your appointment.</li>
-          <li>Eat a healthy meal that’s low in fat.</li>
-          <li>
-            Wear a short-sleeved shirt or a shirt with sleeves that are easy to
-            roll up.
-          </li>
-        </ul>
-      </div>
+<!-- Hero Section -->
+<div class="hero-section position-relative">
+    <img src="{% static 'images/about-hero.jpg' %}" alt="Blood Donation Hero" class="hero-image img-fluid w-100" style="height: 350px; object-fit: cover;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row min-vh-50 align-items-center">
+            <div class="col-lg-8 text-white">
+                <h1 class="display-4 fw-bold mb-4">About Blood Donation</h1>
+                <p class="lead mb-4">Join our mission to save lives through safe and voluntary blood donation. Every drop counts, and your contribution can make a difference.</p>
+                <a href="{% url 'donor_registration' %}" class="btn btn-light btn-lg">Become a Donor</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
+<div class="container py-5">
+    <!-- Benefits Section -->
+    <section class="mb-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                <!-- Fallback: If illustration missing, show icon -->
+                <img src="{% static 'images/benefits-illustration.svg' %}" alt="Benefits of Blood Donation" class="img-fluid rounded-3 shadow d-none d-lg-block" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                <span class="d-lg-none d-inline-block" style="font-size: 4rem; color: var(--primary-color); display: none;"><i class="fas fa-heartbeat"></i></span>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title mb-4">Benefits of Donating Blood</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="benefit-card text-center p-3">
+                            <img src="{% static 'images/emotional-benefit.svg' %}" alt="Emotional" class="benefit-icon mb-3" style="height:48px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                            <span class="d-none" style="font-size:2rem;color:var(--primary-color)"><i class="fas fa-smile"></i></span>
+                            <h5>Emotional Benefits</h5>
+                            <p class="text-muted">Experience the joy of saving lives and making a positive impact in your community.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="benefit-card text-center p-3">
+                            <img src="{% static 'images/health-benefit.svg' %}" alt="Health" class="benefit-icon mb-3" style="height:48px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                            <span class="d-none" style="font-size:2rem;color:var(--success-color)"><i class="fas fa-heart"></i></span>
+                            <h5>Health Benefits</h5>
+                            <p class="text-muted">Regular donation helps maintain healthy iron levels and reduces the risk of heart disease.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Checkup Section -->
+    <section class="mb-5">
+        <div class="card border-0 shadow-lg overflow-hidden">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <img src="{% static 'images/health-checkup.jpg' %}" alt="Health Checkup" class="img-fluid h-100 w-100" style="object-fit: cover; min-height: 250px;">
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-body p-5">
+                        <h2 class="section-title mb-4">Free Health Checkup</h2>
+                        <p class="text-muted mb-4">Every blood donation includes a comprehensive health screening at no cost to you.</p>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="checkup-item text-center">
+                                    <img src="{% static 'images/blood-test.svg' %}" alt="Blood Test" class="checkup-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                    <span class="d-none" style="font-size:1.5rem;color:var(--primary-color)"><i class="fas fa-vial"></i></span>
+                                    <h6>Blood Tests</h6>
+                                    <p class="small text-muted">Complete blood count and iron levels</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkup-item text-center">
+                                    <img src="{% static 'images/vital-signs.svg' %}" alt="Vital Signs" class="checkup-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                    <span class="d-none" style="font-size:1.5rem;color:var(--accent-color)"><i class="fas fa-heartbeat"></i></span>
+                                    <h6>Vital Signs</h6>
+                                    <p class="small text-muted">Blood pressure, pulse, and temperature</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkup-item text-center">
+                                    <img src="{% static 'images/health-history.svg' %}" alt="Health History" class="checkup-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                    <span class="d-none" style="font-size:1.5rem;color:var(--secondary-color)"><i class="fas fa-notes-medical"></i></span>
+                                    <h6>Health History</h6>
+                                    <p class="small text-muted">Comprehensive health questionnaire</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkup-item text-center">
+                                    <img src="{% static 'images/infection-test.svg' %}" alt="Infection Test" class="checkup-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                    <span class="d-none" style="font-size:1.5rem;color:var(--danger-color)"><i class="fas fa-virus"></i></span>
+                                    <h6>Infection Screening</h6>
+                                    <p class="small text-muted">Testing for various blood-borne diseases</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Process Section -->
+    <section class="mb-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title">The Donation Process</h2>
+            <p class="text-muted">Simple, safe, and takes only about an hour of your time</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card text-center p-3">
+                    <div class="process-number">1</div>
+                    <img src="{% static 'images/registration.svg' %}" alt="Registration" class="process-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="d-none" style="font-size:2rem;color:var(--primary-color)"><i class="fas fa-user-plus"></i></span>
+                    <h5>Registration</h5>
+                    <p class="text-muted">Complete a donor registration form and provide identification</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card text-center p-3">
+                    <div class="process-number">2</div>
+                    <img src="{% static 'images/screening.svg' %}" alt="Screening" class="process-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="d-none" style="font-size:2rem;color:var(--accent-color)"><i class="fas fa-stethoscope"></i></span>
+                    <h5>Screening</h5>
+                    <p class="text-muted">Quick health check and medical history review</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card text-center p-3">
+                    <div class="process-number">3</div>
+                    <img src="{% static 'images/donation.svg' %}" alt="Donation" class="process-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="d-none" style="font-size:2rem;color:var(--danger-color)"><i class="fas fa-tint"></i></span>
+                    <h5>Donation</h5>
+                    <p class="text-muted">Actual donation takes about 8-10 minutes</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-card text-center p-3">
+                    <div class="process-number">4</div>
+                    <img src="{% static 'images/recovery.svg' %}" alt="Recovery" class="process-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                    <span class="d-none" style="font-size:2rem;color:var(--success-color)"><i class="fas fa-mug-hot"></i></span>
+                    <h5>Recovery</h5>
+                    <p class="text-muted">Rest and refreshments for 10-15 minutes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="mb-5">
+        <div class="card border-0 shadow-lg">
+            <div class="card-body p-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                        <img src="{% static 'images/requirements-illustration.svg' %}" alt="Donation Requirements" class="img-fluid rounded-3 d-none d-lg-block" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                        <span class="d-lg-none d-inline-block" style="font-size: 3rem; color: var(--primary-color); display: none;"><i class="fas fa-clipboard-list"></i></span>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="section-title mb-4">Basic Requirements</h2>
+                        <div class="requirements-list">
+                            <div class="requirement-item d-flex align-items-center mb-3">
+                                <img src="{% static 'images/age-icon.svg' %}" alt="Age" class="requirement-icon me-3" style="height:28px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                <span class="d-none" style="font-size:1.5rem;color:var(--primary-color)"><i class="fas fa-birthday-cake"></i></span>
+                                <div>
+                                    <h6>Age</h6>
+                                    <p class="text-muted">Between 18 and 65 years old</p>
+                                </div>
+                            </div>
+                            <div class="requirement-item d-flex align-items-center mb-3">
+                                <img src="{% static 'images/weight-icon.svg' %}" alt="Weight" class="requirement-icon me-3" style="height:28px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                <span class="d-none" style="font-size:1.5rem;color:var(--success-color)"><i class="fas fa-weight"></i></span>
+                                <div>
+                                    <h6>Weight</h6>
+                                    <p class="text-muted">Minimum 50 kg (110 lbs)</p>
+                                </div>
+                            </div>
+                            <div class="requirement-item d-flex align-items-center mb-3">
+                                <img src="{% static 'images/health-icon.svg' %}" alt="Health" class="requirement-icon me-3" style="height:28px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                <span class="d-none" style="font-size:1.5rem;color:var(--success-color)"><i class="fas fa-heartbeat"></i></span>
+                                <div>
+                                    <h6>Health</h6>
+                                    <p class="text-muted">Good general health and feeling well</p>
+                                </div>
+                            </div>
+                            <div class="requirement-item d-flex align-items-center mb-3">
+                                <img src="{% static 'images/frequency-icon.svg' %}" alt="Frequency" class="requirement-icon me-3" style="height:28px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                                <span class="d-none" style="font-size:1.5rem;color:var(--accent-color)"><i class="fas fa-calendar-alt"></i></span>
+                                <div>
+                                    <h6>Frequency</h6>
+                                    <p class="text-muted">Wait at least 56 days between donations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preparation Tips -->
+    <section class="mb-5">
+        <div class="card border-0 shadow-lg bg-light">
+            <div class="card-body p-5">
+                <h2 class="section-title text-center mb-5">Before You Donate</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="preparation-card text-center p-3">
+                            <img src="{% static 'images/hydration.svg' %}" alt="Hydration" class="preparation-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                            <span class="d-none" style="font-size:1.5rem;color:var(--primary-color)"><i class="fas fa-tint"></i></span>
+                            <h5>Stay Hydrated</h5>
+                            <p class="text-muted">Drink plenty of water before and after donation</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="preparation-card text-center p-3">
+                            <img src="{% static 'images/meal.svg' %}" alt="Meal" class="preparation-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                            <span class="d-none" style="font-size:1.5rem;color:var(--success-color)"><i class="fas fa-utensils"></i></span>
+                            <h5>Eat Well</h5>
+                            <p class="text-muted">Have a healthy meal 3 hours before donation</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="preparation-card text-center p-3">
+                            <img src="{% static 'images/rest.svg' %}" alt="Rest" class="preparation-icon mb-3" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+                            <span class="d-none" style="font-size:1.5rem;color:var(--accent-color)"><i class="fas fa-bed"></i></span>
+                            <h5>Get Rest</h5>
+                            <p class="text-muted">Ensure you're well-rested before donation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .hero-section {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 3rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+    }
+
+    .min-vh-50 {
+        min-height: 50vh;
+    }
+
+    .section-title {
+        color: var(--primary-color);
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+    }
+
+    .benefit-card {
+        padding: 1.5rem;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .benefit-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .checkup-item {
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #fff;
+        transition: transform 0.3s ease;
+    }
+
+    .checkup-item:hover {
+        transform: translateY(-3px);
+    }
+
+    .checkup-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .process-card {
+        padding: 2rem;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+
+    .process-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .process-number {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .process-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .requirements-list {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .requirement-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #fff;
+        transition: transform 0.3s ease;
+    }
+
+    .requirement-item:hover {
+        transform: translateX(5px);
+    }
+
+    .requirement-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .preparation-card {
+        padding: 1.5rem;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .preparation-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .preparation-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .shadow-lg {
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+    }
+
+    .rounded-3 {
+        border-radius: 0.5rem !important;
+    }
+</style>
 {% endblock %}

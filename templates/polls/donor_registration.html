@@ -1,41 +1,137 @@
-{% extends 'polls/base.html' %} {% block title %}<title>
-  Registration Form
-</title>
-{% endblock %} {% block contents %} {% load static %}
-<style>
-  .image {
-    width: 150px;
-    height: 150px;
-  }
+{% extends 'polls/base.html' %}
+{% block title %}
+<title>Donor Registration - Blood Management System</title>
+{% endblock %}
 
-  .width-border {
-    width: 100%;
-    border-radius: 12px;
-    border: 1px solid #d9534f;
-  }
-  .containers {
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-</style>
+{% block contents %}
+{% load static %}
 
-<div class="containers">
-  <div class="p-5">
-    <div class="shadow-lg p-5 mb-3 bg-white width-border">
-      <form action="{% url 'donor_list' %}" method="post" novalidate>
-        <div class="text-center">
-          <img src="{% static 'images/registration.jpg' %}" class="image" />
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <img src="{% static 'images/registration.jpg' %}" alt="Registration" class="rounded-circle mb-4" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid var(--primary-color);">
+                        <h2 class="text-primary mb-3">Donor Registration</h2>
+                        <p class="text-muted">Join our community of life-savers. Your donation can make a difference.</p>
+                    </div>
+
+                    <form action="{% url 'donor_list' %}" method="post" novalidate class="needs-validation">
+                        {% csrf_token %}
+                        
+                        {% for field in forms %}
+                        <div class="mb-4">
+                            <label for="{{ field.id_for_label }}" class="form-label fw-bold">
+                                {{ field.label }}
+                                {% if field.field.required %}
+                                <span class="text-danger">*</span>
+                                {% endif %}
+                            </label>
+                            {{ field.errors }}
+                            {{ field|add_class:"form-control" }}
+                            {% if field.help_text %}
+                            <div class="form-text">{{ field.help_text }}</div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+                        <div class="d-grid gap-2 mt-5">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-heart me-2"></i>Register as Donor
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4 text-center">
+                        <p class="text-muted mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            By registering, you agree to our terms and conditions
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information Card -->
+            <div class="card mt-4 border-0 bg-light">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary mb-3">
+                        <i class="fas fa-info-circle me-2"></i>Why Donate Blood?
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <i class="fas fa-heartbeat fa-2x text-danger mb-2"></i>
+                                <h6>Save Lives</h6>
+                                <p class="small text-muted">Your donation can save up to 3 lives</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <i class="fas fa-clock fa-2x text-primary mb-2"></i>
+                                <h6>Quick Process</h6>
+                                <p class="small text-muted">Donation takes only 10-15 minutes</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <i class="fas fa-sync fa-2x text-success mb-2"></i>
+                                <h6>Regular Need</h6>
+                                <p class="small text-muted">Blood is needed every 2 seconds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h4 class="text-center pt-4 text-danger text-uppercase">
-          Registration Form
-        </h4>
-        {% csrf_token %} {{forms.as_p}}
-        <button type="submit" class="btn btn-danger">Submit</button>
-      </form>
     </div>
-  </div>
 </div>
 
+<style>
+    .form-control {
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(230, 57, 70, 0.25);
+    }
+
+    .form-label {
+        color: var(--dark-color);
+        font-size: 0.95rem;
+    }
+
+    .errorlist {
+        color: var(--danger-color);
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+    }
+
+    .form-text {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .btn-primary {
+        padding: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+</style>
 {% endblock %}
