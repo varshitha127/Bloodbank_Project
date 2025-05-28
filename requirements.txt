@@ -7,7 +7,10 @@ Markdown==3.3.4
 pytz==2021.1
 sqlparse==0.4.1
 tracestack==0.2.4
-gunicorn
-cloudinary
-django-cloudinary-storage
-whitenoise
+gunicorn==20.1.0
+cloudinary==1.28.1
+django-cloudinary-storage==0.3.0
+whitenoise==6.4.0
+dj-database-url==1.0.0
+psycopg2-binary==2.9.5
+python-dotenv==0.19.2
