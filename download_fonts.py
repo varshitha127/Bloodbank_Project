@@ -12,7 +12,9 @@ font_files = [
     'fa-brands-400.eot',
     'fa-regular-400.eot',
     'fa-solid-900.eot',
-    'fa-brands-400.svg'
+    'fa-brands-400.svg',
+    'fa-regular-400.svg',
+    'fa-solid-900.svg'
 ]
 
 def download_font(url, filename):
