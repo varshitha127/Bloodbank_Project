@@ -11,7 +11,8 @@ base_url = 'https://use.fontawesome.com/releases/v5.15.4/webfonts/'
 font_files = [
     'fa-brands-400.eot',
     'fa-regular-400.eot',
-    'fa-solid-900.eot'
+    'fa-solid-900.eot',
+    'fa-brands-400.svg'
 ]
 
 def download_font(url, filename):
