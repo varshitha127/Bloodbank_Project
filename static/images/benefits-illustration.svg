@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Heart shape -->
+    <path d="M200,100 C200,100 250,50 300,100 C350,150 200,250 200,250 C200,250 50,150 100,100 C150,50 200,100 200,100" 
+          fill="#e63946" opacity="0.8"/>
+    <!-- Pulse lines -->
+    <path d="M150,150 L180,120 L210,180 L240,140 L270,160" 
+          stroke="#1d3557" stroke-width="4" fill="none"/>
+    <!-- Plus symbol -->
+    <circle cx="200" cy="150" r="30" fill="#f1faee"/>
+    <path d="M185,150 L215,150 M200,135 L200,165" 
+          stroke="#e63946" stroke-width="4"/>
+</svg> 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <!-- Stethoscope -->
+    <path d="M16,8 C16,8 20,8 20,12 C20,16 16,16 16,16" 
+          stroke="#457b9d" stroke-width="2" fill="none"/>
+    <circle cx="16" cy="16" r="4" fill="#f1faee" stroke="#457b9d" stroke-width="2"/>
+    <!-- Heart -->
+    <path d="M16,20 C16,20 20,24 20,28 C20,32 16,36 16,36 C16,36 12,32 12,28 C12,24 16,20 16,20" 
+          fill="#e63946" opacity="0.6"/>
+    <!-- Checkmark -->
+    <path d="M14,24 L16,26 L18,24" 
+          stroke="#f1faee" stroke-width="1.5" fill="none"/>
+</svg> 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+    <!-- Cake -->
+    <path d="M4,16 L24,16 L24,20 C24,22 22,24 20,24 L8,24 C6,24 4,22 4,20 L4,16" 
+          fill="#f1faee" stroke="#e63946" stroke-width="2"/>
+    <!-- Candles -->
+    <path d="M10,12 L10,8" stroke="#e63946" stroke-width="1.5"/>
+    <path d="M14,12 L14,8" stroke="#e63946" stroke-width="1.5"/>
+    <path d="M18,12 L18,8" stroke="#e63946" stroke-width="1.5"/>
+    <!-- Numbers -->
+    <text x="8" y="22" font-family="Arial" font-size="8" fill="#1d3557">18-65</text>
+</svg> 

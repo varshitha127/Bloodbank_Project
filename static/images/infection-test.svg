@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <!-- Microscope -->
+    <path d="M16,4 L20,4 L20,8 L16,8 Z" 
+          fill="#e63946" stroke="#1d3557" stroke-width="1"/>
+    <path d="M14,8 L22,8 L22,12 L14,12 Z" 
+          fill="#f1faee" stroke="#1d3557" stroke-width="1"/>
+    <!-- Virus particles -->
+    <circle cx="16" cy="20" r="4" fill="#e63946" opacity="0.6"/>
+    <circle cx="24" cy="24" r="2" fill="#e63946" opacity="0.4"/>
+    <circle cx="8" cy="24" r="2" fill="#e63946" opacity="0.4"/>
+    <!-- Connection lines -->
+    <path d="M16,20 L24,24 M16,20 L8,24" 
+          stroke="#1d3557" stroke-width="1" stroke-dasharray="2,2"/>
+</svg> 

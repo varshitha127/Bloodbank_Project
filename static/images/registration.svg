@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <!-- User silhouette -->
+    <circle cx="16" cy="10" r="6" fill="#f1faee" stroke="#e63946" stroke-width="2"/>
+    <path d="M8,28 C8,22 24,22 24,28" 
+          fill="#f1faee" stroke="#e63946" stroke-width="2"/>
+    <!-- Plus symbol -->
+    <circle cx="24" cy="8" r="4" fill="#2a9d8f"/>
+    <path d="M22,8 L26,8 M24,6 L24,10" 
+          stroke="#f1faee" stroke-width="1.5"/>
+</svg> 

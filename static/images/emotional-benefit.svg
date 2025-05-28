@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <!-- Smiling face -->
+    <circle cx="24" cy="24" r="20" fill="#f1faee" stroke="#e63946" stroke-width="2"/>
+    <!-- Eyes -->
+    <circle cx="16" cy="20" r="2" fill="#e63946"/>
+    <circle cx="32" cy="20" r="2" fill="#e63946"/>
+    <!-- Smile -->
+    <path d="M16,28 Q24,36 32,28" 
+          stroke="#e63946" stroke-width="2" fill="none"/>
+    <!-- Heart -->
+    <path d="M24,32 C24,32 28,28 32,32 C36,36 24,44 24,44 C24,44 12,36 16,32 C20,28 24,32 24,32" 
+          fill="#e63946" opacity="0.6"/>
+</svg> 

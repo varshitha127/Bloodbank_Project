@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+    <!-- Heart with pulse -->
+    <path d="M14,8 C14,8 18,6 20,8 C22,10 14,16 14,16 C14,16 6,10 8,8 C10,6 14,8 14,8" 
+          fill="#2a9d8f" opacity="0.8"/>
+    <!-- Pulse line -->
+    <path d="M6,20 L10,16 L14,24 L18,18 L22,22" 
+          stroke="#1d3557" stroke-width="1.5" fill="none"/>
+    <!-- Checkmark -->
+    <path d="M12,16 L14,18 L16,16" 
+          stroke="#f1faee" stroke-width="1.5" fill="none"/>
+</svg> 

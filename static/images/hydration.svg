@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <!-- Water drop -->
+    <path d="M16,4 C16,4 24,12 24,20 C24,28 16,32 16,32 C16,32 8,28 8,20 C8,12 16,4 16,4" 
+          fill="#457b9d" opacity="0.8"/>
+    <!-- Waves -->
+    <path d="M12,16 C12,16 14,14 16,16 C18,18 20,16 20,16" 
+          stroke="#f1faee" stroke-width="1.5" fill="none"/>
+    <path d="M12,20 C12,20 14,18 16,20 C18,22 20,20 20,20" 
+          stroke="#f1faee" stroke-width="1.5" fill="none"/>
+</svg> 
