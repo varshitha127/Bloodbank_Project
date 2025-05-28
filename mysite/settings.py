@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
     'whitenoise.runserver_nostatic',  # Add whitenoise
+    'widget_tweaks',  # Add this line
 ]
 
 MIDDLEWARE = [
