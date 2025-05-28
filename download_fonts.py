@@ -4,17 +4,22 @@ import requests
 # Create webfonts directory if it doesn't exist
 os.makedirs('static/webfonts', exist_ok=True)
 
-# Font Awesome CDN base URL
-base_url = 'https://use.fontawesome.com/releases/v5.15.4/webfonts/'
+# Font Awesome CDN base URLs
+base_urls = {
+    'webfonts/': 'https://use.fontawesome.com/releases/v5.15.4/webfonts/',
+    'js/': 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/'
+}
 
-# List of font files to download
-font_files = [
+# List of files to download (renamed from font_files for clarity)
+files_to_download = [
     'fa-brands-400.eot',
     'fa-regular-400.eot',
     'fa-solid-900.eot',
     'fa-brands-400.svg',
     'fa-regular-400.svg',
-    'fa-solid-900.svg'
+    'fa-solid-900.svg',
+    'js/popper.min.js',
+    'js/popper.min.js.map'
 ]
 
 def download_font(url, filename):
@@ -31,8 +36,11 @@ def download_font(url, filename):
         print(f'Error downloading {filename}: {e}')
 
 # Download each font file
-for font_file in font_files:
-    url = base_url + font_file
-    download_font(url, font_file)
+for file in files_to_download:
+    # Choose the appropriate base URL (or fallback) for the file.
+    prefix = 'webfonts/' if file.startswith('fa') else 'js/'
+    base_url = base_urls.get(prefix, 'https://use.fontawesome.com/releases/v5.15.4/webfonts/')
+    url = base_url + file
+    download_font(url, file)
 
 print('Font download complete!') 
