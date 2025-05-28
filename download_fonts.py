@@ -1,34 +1,35 @@
 import os
 import requests
 
+# Create webfonts directory if it doesn't exist
+os.makedirs('static/webfonts', exist_ok=True)
+
+# Font Awesome CDN base URL
+base_url = 'https://use.fontawesome.com/releases/v5.15.4/webfonts/'
+
+# List of font files to download
 font_files = [
-    "fa-brands-400.woff2",
-    "fa-brands-400.woff",
-    "fa-brands-400.ttf",
-    "fa-regular-400.woff2",
-    "fa-regular-400.woff",
-    "fa-regular-400.ttf",
-    "fa-solid-900.woff2",
-    "fa-solid-900.woff",
-    "fa-solid-900.ttf"
+    'fa-brands-400.eot',
+    'fa-regular-400.eot',
+    'fa-solid-900.eot'
 ]
 
-base_url = "https://use.fontawesome.com/releases/v5.15.3/webfonts/"
-output_dir = "static/webfonts"
-
-# Create directory if it doesn't exist
-os.makedirs(output_dir, exist_ok=True)
-
-for file in font_files:
-    url = base_url + file
-    output_path = os.path.join(output_dir, file)
-    print(f"Downloading {file}...")
-    response = requests.get(url)
-    if response.status_code == 200:
-        with open(output_path, 'wb') as f:
+def download_font(url, filename):
+    """Download a font file and save it to the webfonts directory."""
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for bad status codes
+        
+        filepath = os.path.join('static/webfonts', filename)
+        with open(filepath, 'wb') as f:
             f.write(response.content)
-        print(f"Successfully downloaded {file}")
-    else:
-        print(f"Failed to download {file}")
+        print(f'Successfully downloaded {filename}')
+    except requests.exceptions.RequestException as e:
+        print(f'Error downloading {filename}: {e}')
 
-print("All font files downloaded successfully!") 
+# Download each font file
+for font_file in font_files:
+    url = base_url + font_file
+    download_font(url, font_file)
+
+print('Font download complete!') 
