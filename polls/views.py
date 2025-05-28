@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import DonorRegistration, Contact, Search
 from .models import donor_Registration, sea_rch, con_tact
 
@@ -61,13 +61,10 @@ def search(request):
 
 
 def search_info(request, email):
-    email = email
-    detail = donor_Registration.objects.get(email=email)
-
+    detail = get_object_or_404(donor_Registration, email=email)
     context = {
         'details': detail
     }
-
     return render(request, 'polls/search_info.html', context)
 
 
@@ -77,9 +74,17 @@ def contact(request):
         forms = Contact(request.POST)
         if forms.is_valid():
             forms.save()
-
-    context = {
-        'forms': forms
-    }
-
+            context = {
+                'forms': forms,
+                'success': True
+            }
+        else:
+            context = {
+                'forms': forms,
+                'error': True
+            }
+    else:
+        context = {
+            'forms': forms
+        }
     return render(request, 'polls/contact.html', context)
