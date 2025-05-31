@@ -1,4 +1,4 @@
-# 🩸 Blood Bank Management System
+﻿# 🩸 Blood Bank Management System
 
 [![Django](https://img.shields.io/badge/Django-3.2-brightgreen.svg)](https://www.djangoproject.com/)
 [![Python](https://img.shields.io/badge/Python-3.9-blue.svg)](https://www.python.org/)
@@ -11,9 +11,20 @@ A web–based Blood Bank Management System built with Django that helps users fi
 
 ## 📋 Demo
 
-**Demo (Live):** [Demo Link (Replace with your deployed URL)](https://your-render-deployed-url.onrender.com)
+**Demo (Live):** [Demo Link (https://bloodbank-project.onrender.com/
+)]
 
-*(Demo screenshot (if available) can be added here.)*
+*(Demo screenshot)*
+ 
+
+
+
+
+
+
+
+
+
 
 ---
 
