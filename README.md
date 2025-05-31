@@ -16,16 +16,14 @@ A web–based Blood Bank Management System built with Django that helps users fi
 
 *(Demo screenshot)*
  ![Screenshot 2025-05-31 111909](https://github.com/user-attachments/assets/22870603-94f4-47ec-af75-c205659ca706)
+ 
+![Screenshot 2025-05-31 111933](https://github.com/user-attachments/assets/cb067d05-ac21-4d9e-86c4-d7372adf666d)
 
+![Screenshot 2025-05-31 111944](https://github.com/user-attachments/assets/a827ccb1-2ac6-4b18-8a51-cfb6ac8594d0)
 
+![Screenshot 2025-05-31 112005](https://github.com/user-attachments/assets/4af1fd09-5a6b-419a-84da-34fa1ac99ba6)
 
-
-
-
-
-
-
-
+![Screenshot 2025-05-31 112029](https://github.com/user-attachments/assets/eedb93e9-c7d1-4521-9785-535d84c44601)
 
 ---
 
